@@ -1,9 +1,7 @@
 import requests
-import os
-import sys
 
 
-def get_ceep():
+def input_ceep():
     while 1:
         try:
             ceep = input('Digite seu cep: ')
@@ -20,9 +18,9 @@ def get_ceep():
             exit()
 
 
-if __name__ == '__main__':
+def get_ceep():
     while 1:
-        ceep = get_ceep()
+        ceep = input_ceep()
         r = requests.get(f'https://viacep.com.br/ws/{ceep}/json/')
         data = r.json()
 
@@ -43,3 +41,7 @@ if __name__ == '__main__':
         if novamente_main == 'N':
             print("Até mais...")
             exit()
+
+
+if __name__ == '__main__':
+    get_ceep()
